@@ -8,6 +8,7 @@ const app = express();
 
 const dataRoutes = require("./routes/data");
 const authRoutes = require("./routes/auth");
+const appRoutes = require("./routes/app");
 
 mongoose.connect(process.env.DATABASE, {
     useFindAndModify: false,
@@ -25,6 +26,7 @@ app.use(bodyParser.json());
 
 app.use("/", dataRoutes);
 app.use("/", authRoutes);
+app.use("/", appRoutes);
 
 const port = process.env.PORT || 8000
 app.listen(port, () => {
